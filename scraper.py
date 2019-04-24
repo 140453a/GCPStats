@@ -11,5 +11,15 @@ for entry in feed['entries']:
     if re.search("^.*Cannon", entry.title) is None:
         outer_list.append((entry.title, entry.itunes_duration))
 
-for x in outer_list:
+times = []
+for x in outer_list[::-1]: # Iterate backwards from oldest to most recent
+    times.append(int(x[1]))
     print(x)
+y_mean = [np.mean(times)] * len(times)
+print(y_mean[0])
+fig,ax = plt.subplots()
+
+data_line = ax.plot(times)
+mean_line = ax.plot(y_mean, linestyle='--')
+
+plt.show()
