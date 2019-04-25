@@ -1,6 +1,8 @@
 import feedparser
 import re
+import datetime
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 feed = feedparser.parse("https://audioboom.com/channels/4072907.rss")
@@ -12,14 +14,19 @@ for entry in feed['entries']:
         outer_list.append((entry.title, entry.itunes_duration))
 
 times = []
+names = []
 for x in outer_list[::-1]: # Iterate backwards from oldest to most recent
     times.append(int(x[1]))
-    print(x)
-y_mean = [np.mean(times)] * len(times)
-print(y_mean[0])
-fig,ax = plt.subplots()
+    names.append(x[0])
 
-data_line = ax.plot(times)
-mean_line = ax.plot(y_mean, linestyle='--')
+print(times)
+
+data_set = list(zip(names, times))
+df = pd.DataFrame(data = data_set, columns=['Episode', 'Episode Length'])
+df['Moving Average (10)'] = df['Episode Length'].rolling(10).mean()
+df['Average'] = df['Episode Length'].mean()
+
+lines = df.plot.line()
+
 
 plt.show()
