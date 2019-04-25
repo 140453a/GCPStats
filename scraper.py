@@ -23,10 +23,10 @@ print(times)
 
 data_set = list(zip(names, times))
 df = pd.DataFrame(data = data_set, columns=['Episode', 'Episode Length'])
-df['Moving Average (10)'] = df['Episode Length'].rolling(10).mean()
+df['Moving Average (8)'] = df['Episode Length'].rolling(8).mean()
 df['Average'] = df['Episode Length'].mean()
 
-lines = df.plot.line(title='GCP Episodes and Running Time')
+lines = df.plot.line(title='GCP Episodes and Running Time (' + str(datetime.datetime.now().date()) + ')')
 lines.set_xlabel("Episode #")
 lines.set_ylabel("Running Time (Minutes)")
 
