@@ -16,7 +16,7 @@ for entry in feed['entries']:
 times = []
 names = []
 for x in outer_list[::-1]: # Iterate backwards from oldest to most recent
-    times.append(int(x[1]))
+    times.append(round(float(x[1]) / 60 ))
     names.append(x[0])
 
 print(times)
@@ -26,7 +26,9 @@ df = pd.DataFrame(data = data_set, columns=['Episode', 'Episode Length'])
 df['Moving Average (10)'] = df['Episode Length'].rolling(10).mean()
 df['Average'] = df['Episode Length'].mean()
 
-lines = df.plot.line()
+lines = df.plot.line(title='GCP Episodes and Running Time')
+lines.set_xlabel("Episode #")
+lines.set_ylabel("Running Time (Minutes)")
 
 
 plt.show()
