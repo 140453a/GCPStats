@@ -14,6 +14,7 @@ for entry in feed['entries']:
             curr = [int(s) for s in entry.title.split() if s.isdigit()]
             if curr[0] == prev[0]: # multi-episode
                 if re.search("part|Part", entry.title) is None: # duplicate
+                    print("Duplicate!", entry.title)
                     continue
                 saved = outer_list.pop()
                 new_duration = int(entry.itunes_duration) + int(saved[1])
@@ -28,9 +29,11 @@ for entry in feed['entries']:
 times = []
 names = []
 for x in outer_list[::-1]: # Iterate backwards from oldest to most recent
-    times.append(round(float(x[1]) / 60 ))
+    times.append(float(x[1]) / 60 )
     names.append(x[0])
-    print(x)
+    print(x, float(x[1]) / 60 )
+
+
 
 
 
