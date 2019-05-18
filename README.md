@@ -6,6 +6,7 @@ This was made for a Reddit post at: https://www.reddit.com/r/TheGlassCannonPodca
 
 ### Examples
 ### (Updated) Regular graph
+The graph has been updated to lump together "multi-part" episodes. For example, Episode 200 Parts 1, 2, 3 as suggested in the top Reddit comment.
 ![New](Figure_1_updated.png)
 #### (old) Regular graph:
 ![Graph](Figure_1.png)
