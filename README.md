@@ -6,7 +6,7 @@ This was made for a Reddit post at: https://www.reddit.com/r/TheGlassCannonPodca
 
 ### Examples
 ### (Updated) Regular graph
-![New](Figure_1_updated.png
+![New](Figure_1_updated.png)
 #### (old) Regular graph:
 ![Graph](Figure_1.png)
 #### Graph with y-axis starting at 0:
