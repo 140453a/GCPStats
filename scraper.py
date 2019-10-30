@@ -48,6 +48,8 @@ major_x = (list(range(25, len(times), 25)))
 major_x.insert(0, 1)
 print(major_x)
 
+#
+
 
 # pandas visualization
 data_set = list(zip(names, times))
@@ -66,6 +68,7 @@ lines.set_xlabel("Episode #")
 lines.set_ylabel("Running Time (Minutes)")
 
 plt.xticks(major_x)
+plt.yticks((np.arange(min(times), max(times)+1, 5))) # Want every 5 minutes to be a y-tick
 plt.show() # showing the plot. 
 
 #WIP outputting screenshot with pandas
