@@ -48,8 +48,6 @@ major_x = (list(range(25, len(times), 25)))
 major_x.insert(0, 1)
 print(major_x)
 
-#
-
 
 # pandas visualization
 data_set = list(zip(names, times))
